@@ -1,0 +1,24 @@
+/* Центрируем контент по вертикали и горизонтали */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* центр по горизонтали */
+    align-items: center;     /* центр по вертикали */
+    background-color: #f0f0f0; /* фон страницы */
+}
+
+/* Стили для ссылки */
+a {
+    color: red;           /* красная ссылка */
+    font-size: 24px;      /* размер текста */
+    text-decoration: none; /* убрать подчеркивание */
+    font-weight: bold;
+    transition: transform 0.2s; /* плавное увеличение при наведении */
+}
+
+/* Эффект при наведении */
+a:hover {
+    text-decoration: underline;
+    transform: scale(1.1); /* слегка увеличивается */
+}
