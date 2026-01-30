@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV</title>
-    <link rel="stylesheet" href="style.css"> <!-- подключение отдельного CSS -->
+    <link rel="stylesheet" href="style.css"> <!-- подключение CSS -->
 </head>
 <body>
  <header>
@@ -13,6 +13,12 @@
         </h1>
         <p>Check out some of my work below</p>
     </header>
+
+    <!-- Новая карточка с live-counter -->
+        <div class="volume">
+            <h3>The total volume of the entire digital information field (real-time): </h3>
+            <div class="supertext" id="counter">—</div>
+        </div>
 
     <div class="projects-grid">
         <div class="project-card large">
@@ -39,22 +45,37 @@
             <h3>Project 6</h3>
             <p>Description of project 6. Regular size card.</p>
         </div>
-        <div class="project-card wide">
-            <h3>Project 6</h3>
-            <p>Description of project 6. Regular size card.</p>
-        </div>
         <div class="project-card large">
-            <h3>Project 6</h3>
-            <p>Description of project 6. Regular size card.</p>
+            <h3>Project 1</h3>
+            <p>Description of project 1. Bigger card for highlighting.</p>
+        </div>
+        <div class="project-card wide">
+            <h3>Project 2</h3>
+            <p>Description of project 2. Wider card for emphasis.</p>
         </div>
         <div class="project-card tall">
+            <h3>Project 3</h3>
+            <p>Description of project 3. Taller card to make grid dynamic.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 4</h3>
+            <p>Description of project 4. Regular size card.</p>
+        </div>
+        <div class="project-card large">
+            <h3>Project 5</h3>
+            <p>Description of project 5. Another large card.</p>
+        </div>
+        <div class="project-card">
             <h3>Project 6</h3>
             <p>Description of project 6. Regular size card.</p>
         </div>
     </div>
 
     <footer>
-        <p>My GitHub: <a href="https://github.com/NikolayEmrich" target="_blank">https://github.com/nikolayemrich</a></p>
+        <p>My GitHub: <a href="https://github.com/NikolayEmrich" target="_blank">https://github.com/NikolayEmrich</a></p>
     </footer>
+
+    <!-- Подключение внешнего JS -->
+    <script src="script.js"></script>
 </body>
 </html>
