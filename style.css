@@ -1,156 +1,223 @@
-     * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            padding: 20px;
-
-            /* фоновое изображение */
-    background-image: url('bild.jpg');
-
-    /* чтобы картинка растягивалась на весь экран */
-    background-size: cover;
-
-    /* центрируем картинку */
-    background-position: center;
-
-    /* картинка не повторяется */
-    background-repeat: no-repeat;
-
-    /* фиксируем фон при скролле */
-    background-attachment: fixed;
-        }
-
-        body::before {
-    content: "";
-    position: fixed; /* чтобы слой был на весь экран */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* черный слой с прозрачностью 50% */
-    z-index: -1; /* чтобы слой был позади контента */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-        .start{
-            text-align: center;
-            margin-bottom: 20px;
-        }
 
-        a {
-            color: #24663c;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+body {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("bild.jpg");
 
-        a:hover {
-            color: #35bf65;
-        }
+  /* фоновое изображение */
+  background-image: url("bild.jpg");
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+  /* чтобы картинка растягивалась на весь экран */
+  background-size: cover;
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
+  /* центрируем картинку */
+  background-position: center;
 
-        header p {
-            color: #aaaaaa;
-            font-size: 1rem;
-        }
+  /* картинка не повторяется */
+  background-repeat: no-repeat;
 
-        .projects-grid {
-    display: grid;
-    gap: 20px;
-    grid-auto-rows: 200px;
-    grid-template-columns: repeat(1, 1fr); /* мобильный */
+  /* фиксируем фон при скролле */
+  background-attachment: fixed;
+
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+body::before {
+  content: "";
+  position: fixed; /* чтобы слой был на весь экран */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* черный слой с прозрачностью 50% */
+  z-index: -1; /* чтобы слой был позади контента */
+}
+.start {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #30854f;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #35bf65;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+header p {
+  color: #e4e4e4;
+  font-size: 1rem;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 20px;
+  grid-auto-rows: 200px;
+  grid-template-columns: repeat(1, 1fr); /* мобильный */
 }
 
 @media (min-width: 500px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 800px) {
-    .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (min-width: 1100px) {
-    .projects-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-        .project-card {
-            background-color: #1e1e1e;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(4, 27, 59, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            opacity: 0.7; /* 50% прозрачности для всего блока */
-        }
+.project-1
+{
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("project1.jpg");
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-            opacity: 0.85; /* 50% прозрачности для всего блока */
-        }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-        .project-card h3 {
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
+  color: #ffffff;
+}
 
-        .project-card p {
-            color: #bbbbbb;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
+.project-2
+{
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("project4.jpg");
 
-        .volume {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-        .supertext {
-            font-size: 60px;
-            font-weight: bold; /* жирный текст */
-        }
+  color: #ffffff;
+}
 
-        /* Разные размеры карточек */
-        .project-card.large {
-            grid-row: span 2; /* двойная высота */
-        }
+.project-3
+{
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("project3.jpg");
 
-        .project-card.tall {
-            grid-row: span 3; /* тройная высота */
-        }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-        .project-card.wide {
-            grid-column: span 2; /* двойная ширина */
-        }
+  color: #ffffff;
+}
 
-        footer {
-            margin-top: auto;
-            text-align: center;
-            color: #777777;
-            font-size: 0.8rem;
-            padding: 20px 0 0 0;
-        }
+.project-4
+{
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("project2.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #ffffff;
+}
+
+.project-card {
+  border: 2px solid transparent;
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(4, 27, 59, 0.5);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 0.7; /* 50% прозрачности для всего блока */
+
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.55s ease,
+    border 0.55s ease,
+    border-radius 0.55s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+  opacity: 0.99; /* 50% прозрачности для всего блока */
+  border: 2px solid rgba(0, 0, 0, 0.436);
+  border-radius: 30px;
+  padding: 20px; /* важно, чтобы карточки не прилипали к бордеру */
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.project-card p {
+  color: #dddddd;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.volume {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.supertext {
+  font-size: 60px;
+  font-weight: bold; /* жирный текст */
+}
+
+/* Разные размеры карточек */
+.project-card.large {
+  grid-row: span 2; /* двойная высота */
+}
+
+.project-card.tall {
+  grid-row: span 3; /* тройная высота */
+}
+
+.project-card.wide {
+  grid-column: span 2; /* двойная ширина */
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  color: #777777;
+  font-size: 0.8rem;
+  padding: 20px 0 0 0;
+}
