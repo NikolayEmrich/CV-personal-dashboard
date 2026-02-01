@@ -82,13 +82,13 @@ header p {
 /* Телефон */
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         text-align: center; /* удобно для маленького экрана */
     }
 
     header a {
         display: block; /* чтобы ссылка переносилась на новую строку */
-        font-size: 1rem; /* меньше, чем текст */
+        font-size: 1.5rem; /* меньше, чем текст */
         margin-top: 5px;
     }
 }
