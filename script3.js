@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<title>3D Icons Sphere</title>
-<style>
-  body {
-    margin: 0;
-    overflow: hidden;
-    background: 
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url('bild.jpg') no-repeat center center fixed;
-    background-size: cover;
-    cursor: default;
-  }
-</style>
-</head>
-<body>
-
-<!--Link to three.modul.js from GitHub-->
-<!--<script type="module">
-import * as THREE from "https://cdn.jsdelivr.net/npm/three/build/three.module.min.js";-->
-
-<!--Link to three.modul.js from local computer-->
-<script type="module">
 import * as THREE from "./moduls.js/three.module.min.js";
 console.log("Модуль THREE загружен:", THREE);
 
 // ---------------- СЦЕНА ----------------
 const scene = new THREE.Scene();
-console.log("Модуль THREE работает", THREE);
 
 // Камера
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 100);
@@ -36,11 +10,6 @@ camera.position.z = 4;
 
 // Рендер
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
-// Это делает иконки яркими !!!
-/*renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.outputEncoding = THREE.sRGBEncoding;*/
-
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
@@ -49,7 +18,7 @@ const group = new THREE.Group();
 scene.add(group);
 
 // Повернуть шар под углом
-group.rotation.x = 0.3; // наклон вверх
+group.rotation.x = 0.35; // наклон вверх
 group.rotation.y = 0.0;  // наклон вбок
 
 // ---------------- ШАР (почти невидимый) ----------------
@@ -60,7 +29,7 @@ const sphere = new THREE.Mesh(
     metalness: 0.1,
     roughness: 0,
     transparent: true,
-    opacity: 0.01, // прозрачность, которая возможно гасит контраст иконок
+    opacity: 0.05, // прозрачность, которая возможно гасит контраст иконок
     clearcoat: 1,
     clearcoatRoughness: 0,
   })
@@ -80,16 +49,16 @@ function addIcon(url, angle, link) {
     texture.colorSpace = THREE.SRGBColorSpace;
 
     const sprite = new THREE.Sprite(
-  new THREE.SpriteMaterial({
-    map: texture,
-    color: 0xffffff,     // насыщенный цвет
-    depthTest: false,    // чтобы не “разбавлялись” шаром
-    depthWrite: false,   // важное дополнение для прозрачных объектов
-    transparent: true,
-    opacity: 1
-  })
-);
-sprite.renderOrder = 1;
+      new THREE.SpriteMaterial({
+        map: texture,
+        color: 0xffffff,     // насыщенный цвет
+        depthTest: false,    // чтобы не “разбавлялись” шаром
+        depthWrite: false,   // важное дополнение для прозрачных объектов
+        transparent: true,
+        opacity: 1
+      })
+    );
+    sprite.renderOrder = 1;
 
     const r = 1.7;
     sprite.position.set(
@@ -134,8 +103,8 @@ const r = 1.2;
 const N = iconsData.length;
 
 for (let i = 0; i < N; i++) {
-  const phi = Math.acos(1 - 2*(i + 0.5)/N);       // вертикальный угол
-  const theta = Math.PI * (1 + Math.sqrt(5)) * i; // горизонтальный угол
+  const phi = Math.acos(1 - 2*(i + 0.5)/N);
+  const theta = Math.PI * (1 + Math.sqrt(5)) * i;
   const x = r * Math.sin(phi) * Math.cos(theta);
   const y = r * Math.cos(phi);
   const z = r * Math.sin(phi) * Math.sin(theta);
@@ -156,7 +125,6 @@ function addIconAtPosition(url, x, y, z, link) {
       })
     );
     sprite.position.set(x, y, z);
-    // Здесь можно уменьшить размер ИКОНОК (а также сменить стр. 234)
     sprite.scale.set(0.1, 0.1, 1);
     sprite.userData = { link, baseScale: 0.1 };
     sprite.renderOrder = 1;
@@ -186,7 +154,7 @@ let hasDragged = false;
 let startX = 0;
 let startY = 0;
 
-const DRAG_THRESHOLD = 6; // px — можно увеличить до 8–10
+const DRAG_THRESHOLD = 6;
 
 window.addEventListener("pointerdown", e => {
   isPointerDown = true;
@@ -201,7 +169,6 @@ window.addEventListener("pointermove", e => {
   const dx = e.clientX - startX;
   const dy = e.clientY - startY;
 
-  // если движение заметное — это drag
   if (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD) {
     hasDragged = true;
   }
@@ -216,27 +183,21 @@ window.addEventListener("pointermove", e => {
 });
 
 window.addEventListener("pointerup", () => {
-  // ⛔ если был drag — НИКОГДА не открываем ссылку
   if (!hasDragged && hovered) {
     window.open(hovered.userData.link, "_blank");
   }
-
   isPointerDown = false;
 });
-
 
 // ---------------- АНИМАЦИЯ ----------------
 function animate() {
   requestAnimationFrame(animate);
 
-  // медленное авто-вращение
   group.rotation.y += 0.003;
 
-  // raycaster для hover
   raycaster.setFromCamera(mouse, camera);
   const hits = raycaster.intersectObjects(icons);
 
-  // обновляем hovered
   if (hits.length > 0) {
     hovered = hits[0].object;
     document.body.style.cursor = "pointer";
@@ -245,10 +206,9 @@ function animate() {
     document.body.style.cursor = "default";
   }
 
-  // плавное масштабирование иконок
   const hoverScale = 0.7;
-  // Здесь меняется размер ИКОНКИ (также сменить размер стр. 143)
   const normalScale = 0.5;
+
   icons.forEach(icon => {
     const target = (icon === hovered) ? hoverScale : normalScale;
     icon.scale.x += (target - icon.scale.x) * 0.1;
@@ -256,7 +216,6 @@ function animate() {
     icon.scale.z += (target - icon.scale.z) * 0.1;
   });
 
-  // рендер сцены
   renderer.render(scene, camera);
 }
 animate();
@@ -267,7 +226,3 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
-</script>
-
-</body>
-</html>

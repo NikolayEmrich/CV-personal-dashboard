@@ -5,6 +5,17 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Контейнер для 3D-шара */
+#icons-sphere {
+    margin-top: -110px;
+    width: 100%;
+    height: 400px;   /* можно увеличить */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+    z-index: 10;
+}
+
 body {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("bild.jpg");
@@ -31,6 +42,11 @@ body {
   padding: 20px;
 }
 
+body {
+  position: relative;
+  z-index: 0;
+}
+
 body::before {
   content: "";
   position: fixed; /* чтобы слой был на весь экран */
@@ -41,7 +57,13 @@ body::before {
   background-color: rgba(0, 0, 0, 0.7); /* черный слой с прозрачностью 50% */
   z-index: -1; /* чтобы слой был позади контента */
 }
+
+body::before {
+  z-index: -1;
+}
+
 .start {
+  margin-top: 10px;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -132,7 +154,7 @@ header p {
 }
 
 /* Перемещаем Project 1 в конец на мобильных */
-@media (max-width: 480px) {
+@media (max-width: 800px) {
     .project-1 {
         order: 99; /* большое число = в конец */
     }
@@ -221,7 +243,15 @@ header p {
 
 .volume {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+
+.volume h3 {
+  margin-bottom: 5px;   /* или 0 */
+}
+
+.supertext {
+  margin-bottom: 5px;   /* ← ключевая строка */
 }
 
 .supertext {
