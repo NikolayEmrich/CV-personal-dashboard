@@ -5,6 +5,10 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*#icons-sphere {
+  cursor: url("./icons/cursor-hand.png") 8 8, pointer;
+}*/
+
 /* Контейнер для 3D-шара */
 #icons-sphere {
     margin-top: -110px;
@@ -71,11 +75,17 @@ body::before {
 a {
   color: #30854f;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.5s;
 }
 
 a:hover {
-  color: #35bf65;
+  color: #43a538;
+  /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);*/
+    text-shadow:
+    -1px -1px 0 #0000008e,
+     1px -1px 0 #00000082,
+    -1px  1px 0 #0000007d,
+     1px  1px 0 #00000061;
 }
 
 header {
