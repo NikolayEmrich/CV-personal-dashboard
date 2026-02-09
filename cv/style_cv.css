@@ -91,7 +91,8 @@ p {
 /* 📱 Большие телефоны (390–430px) */
 @media (min-width: 390px) {
     body {
-        padding: 10px;
+        padding: 25px;
+        max-width: 100%;
     }
 
     .container {
@@ -102,18 +103,19 @@ p {
 /* 📲 Планшеты */
 @media (min-width: 600px) {
     body {
-        padding: 20px;
+        padding: 50px;
     }
 
     .container {
-        max-width: 750px;
+        max-width: 100%;
     }
 }
 
 /* 💻 Десктоп */
 @media (min-width: 1024px) {
     .container {
-        max-width: 480px;
+        max-width: 40%;
+        padding: 50px;
     }
 
     h1 {
